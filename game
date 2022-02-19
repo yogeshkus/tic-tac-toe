@@ -1,0 +1,86 @@
+def display(board):
+    print("-------------------------")
+    print("| "+board[0]+" | "+board[1]+" | "+board[2]+" |")
+    print("-------------------------")
+    print("| "+board[3]+" | "+board[4]+" | "+board[5]+" |")
+    print("-------------------------")
+    print("| "+board[6]+" | "+board[7]+" | "+board[8]+" |")
+    print("-------------------------")
+    
+def checkwin(board,count):
+    if board[0] == board[1] == board[2]:
+        if board[0] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    if board[3] == board[4] == board[5]:
+        if board[3] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    if board[6] == board[7] == board[8]:
+        if board[6] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    
+    if board[0] == board[3] == board[6]:
+        if board[0] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    if board[1] == board[4] == board[7]:
+        if board[1] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    if board[2] == board[5] == board[8]:
+        if board[2] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    if board[0] == board[4] == board[8]:
+        if board[0] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    if board[2] == board[4] == board[6]:
+        if board[2] == "x":
+            print("Player 1 is won")
+        else:
+            print("Player 2 is won")
+            
+    if count == 9:
+        print("Draw")
+        
+    
+board = ["1","2","3","4","5","6","7","8","9"]
+display(board)
+count = 0
+turn = 1
+value = "x"
+while count < 9:
+    pos = int(input("Player ,"+str(turn)+", turn - Enter the postion "+value+" : "))
+    if board[pos] == "x" or board[pos] == "o":
+        print("invalid postion")
+    else:
+        board[pos] = value
+    display(board)
+    if turn == 1:
+        turn = 2
+        value = "o"
+    else:
+        turn = 1
+        value = "x"
+    count += 1
+    checkwin(board,count)     
+    
+    
+    
